@@ -13,6 +13,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { SessionsListComponent } from './events/sessions-list.component';
 
 import { EventRouteActivaor } from './events/event-route-activator.service';
 import { EventsListResolver } from './events/event-list-resolver.service';
@@ -40,7 +41,8 @@ import { ToastrService } from './common/toastr.service';
         EventDetailsComponent,
         CreateEventComponent,
         Error404Component,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionsListComponent
     ],
     providers: [
         EventService,
