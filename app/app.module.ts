@@ -12,6 +12,8 @@ import { EventService } from './events/events.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
+
 import { EventRouteActivaor } from './events/event-route-activator.service';
 import { EventsListResolver } from './events/event-list-resolver.service';
 import { appRoute } from './routes';
@@ -37,7 +39,8 @@ import { ToastrService } from './common/toastr.service';
         NavBarComponent,
         EventDetailsComponent,
         CreateEventComponent,
-        Error404Component
+        Error404Component,
+        CreateSessionComponent
     ],
     providers: [
         EventService,
