@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { EventsAppComponent } from './event-app.component';
 import { EventslistComponent } from './events/events-list.component';
@@ -24,6 +25,8 @@ import { ToastrService } from './common/toastr.service';
     imports: [
         BrowserModule,
         HttpModule,
+        ReactiveFormsModule,
+        FormsModule,
         RouterModule.forRoot(appRoute)
     
     ],
