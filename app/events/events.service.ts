@@ -8,7 +8,7 @@ export class EventService {
 
     getEvents():Observable<any>{
       let subject = new Subject<any>()
-      setTimeout(() => {subject.next(EVENTS); subject.complete();}, 3000)
+      setTimeout(() => {subject.next(EVENTS); subject.complete();}, 1000)
       return subject;
     }
 
