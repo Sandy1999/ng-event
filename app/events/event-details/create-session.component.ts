@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISession, IEvent } from '../events.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'create-session',
@@ -21,7 +22,7 @@ export class CreateSessionComponent implements OnInit {
     duration:FormControl
     level:FormControl
     abstract:FormControl
-    constructor() { }
+    constructor(private router:Router ) { }
 
     ngOnInit() { 
         this.name = new FormControl('',Validators.required),
@@ -38,6 +39,9 @@ export class CreateSessionComponent implements OnInit {
         })
     }
     saveSession(formValue){
+        if (this.newSessionForm.invalid) {
+            this.router.navigate(['/events'])
+        }
         let session:ISession={
             id:undefined,
             name:formValue.name,
