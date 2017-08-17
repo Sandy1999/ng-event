@@ -16,7 +16,7 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
 import { SessionsListComponent } from './events/sessions-list.component';
 import { CollapsibleWellComponent } from './events/collapsible-well.component';
 
-
+import { DurationPipe } from './events/duration.pipe';
 import { EventRouteActivaor } from './events/event-route-activator.service';
 import { EventsListResolver } from './events/event-list-resolver.service';
 import { appRoute } from './routes';
@@ -45,7 +45,8 @@ import { ToastrService } from './common/toastr.service';
         Error404Component,
         CreateSessionComponent,
         SessionsListComponent,
-        CollapsibleWellComponent
+        CollapsibleWellComponent,
+        DurationPipe
     ],
     providers: [
         EventService,
