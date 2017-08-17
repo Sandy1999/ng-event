@@ -39,19 +39,20 @@ export class CreateSessionComponent implements OnInit {
         })
     }
     saveSession(formValue){
-        if (this.newSessionForm.invalid) {
+        if (this.newSessionForm.valid) {
+            let session:ISession={
+                id:undefined,
+                name:formValue.name,
+                presenter:formValue.presenter,
+                duration:formValue.duration,
+                level:formValue.level,
+                abstract:formValue.abstract,
+                voters:[]
+            }
+            this.AddNewSession.emit(session)
+        }else{
             this.router.navigate(['/events'])
         }
-        let session:ISession={
-            id:undefined,
-            name:formValue.name,
-            presenter:formValue.presenter,
-            duration:formValue.duration,
-            level:formValue.level,
-            abstract:formValue.abstract,
-            voters:[]
-        }
-        this.AddNewSession.emit(session)
     }
     private restrictedWords(control:FormControl):{[key:string]: any} 
     {
