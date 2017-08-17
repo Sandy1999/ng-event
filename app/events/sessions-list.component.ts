@@ -7,8 +7,8 @@ import { ISession } from './events.model';
 })
 
 export class SessionsListComponent implements OnInit {
-   @Input() sessions:ISession[]
-   
+    @Input() sessions:ISession[]
+
     constructor() { }
 
     ngOnInit() { }

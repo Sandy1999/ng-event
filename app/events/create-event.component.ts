@@ -12,6 +12,7 @@ import { EventService } from './events.service';
     .error ::-moz-placeholder { color: #999; }
     .error :-moz-placeholder { color:#999; }
     .error :ms-input-placeholder { color: #999; }
+    .addsession{float: right;}
   `]
 })
 
