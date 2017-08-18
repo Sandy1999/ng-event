@@ -9,13 +9,16 @@ import { ActivatedRoute } from '@angular/router';
     styles:[`
     .container{margin-left:20px; margin-right:20px;}
     .event-image{height:100px;}
-    a {cursor:pointer;}
+    a{cursor:pointer;}
+    .active{background:#171a1d}
     `]
 })
 
 export class EventDetailsComponent implements OnInit {
     event:IEvent
     addMode:boolean
+    filterBy:string = 'all';
+    sortBy:string = 'votes'
     constructor(private eventService: EventService, private route:ActivatedRoute) { }
 
     ngOnInit() {
