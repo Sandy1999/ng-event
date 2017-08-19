@@ -15,6 +15,8 @@ import { Error404Component } from './errors/404.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionsListComponent } from './events/sessions-list.component';
 import { CollapsibleWellComponent } from './events/collapsible-well.component';
+import { SimpleModalComponent } from './common/simple-modal.component';
+
 
 import { DurationPipe } from './events/duration.pipe';
 import { EventRouteActivaor } from './events/event-route-activator.service';
@@ -23,10 +25,11 @@ import { appRoute } from './routes';
 import { AuthService } from './user/auth.service';
 
 import { TOASTR_TOKEN } from './common/toastr.service';
-
-
+import { JQ_TOKEN } from './common/jQuery.service';
+import { ModelTriggerDirective } from './common/modal-trigger.directive';
 
 declare let toastr:any;
+declare let jQuery:Object;
 // import { AppRoutingModule } from './App.routing'; //TODO: Create App.routing
 
 @NgModule({
@@ -49,13 +52,19 @@ declare let toastr:any;
         CreateSessionComponent,
         SessionsListComponent,
         CollapsibleWellComponent,
-        DurationPipe
+        DurationPipe,
+        SimpleModalComponent,
+        ModelTriggerDirective
     ],
     providers: [
         EventService,
         {
             provide:TOASTR_TOKEN,
             useValue: toastr
+        },
+        {
+            provide:JQ_TOKEN,
+            useValue:jQuery
         }, 
         EventRouteActivaor,
         {
