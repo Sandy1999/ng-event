@@ -22,8 +22,11 @@ import { EventsListResolver } from './events/event-list-resolver.service';
 import { appRoute } from './routes';
 import { AuthService } from './user/auth.service';
 
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN } from './common/toastr.service';
 
+
+
+declare let toastr:any;
 // import { AppRoutingModule } from './App.routing'; //TODO: Create App.routing
 
 @NgModule({
@@ -50,7 +53,10 @@ import { ToastrService } from './common/toastr.service';
     ],
     providers: [
         EventService,
-        ToastrService, 
+        {
+            provide:TOASTR_TOKEN,
+            useValue: toastr
+        }, 
         EventRouteActivaor,
         {
             provide:'deactivateCreateEvent',
