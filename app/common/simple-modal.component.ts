@@ -23,12 +23,15 @@ import { JQ_TOKEN } from '../common/jQuery.service';
 export class SimpleModalComponent implements OnInit {
     @Input() title:string
     @Input() elementId:string
+    @Input() closeOnBodyClick:boolean = false
 
     @ViewChild('modalcontainer') containerEl:ElementRef
     constructor( @Inject(JQ_TOKEN) private $:any ) { }
 
     ngOnInit() { }  
     closeModal(){
-      this.$(this.containerEl.nativeElement).modal('hide');
+      if (this.closeOnBodyClick) { 
+        this.$(this.containerEl.nativeElement).modal('hide');
+      }
     }
 }
