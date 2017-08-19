@@ -18,7 +18,6 @@ import { JQ_TOKEN } from '../common/jQuery.service';
       </div>
     </div>
     `,
-    styles: [``]
 })
 
 export class SimpleModalComponent implements OnInit {
