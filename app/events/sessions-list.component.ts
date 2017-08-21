@@ -1,5 +1,7 @@
 import { Component, OnInit, Input , OnChanges } from '@angular/core';
 import { ISession } from './events.model';
+import { VoterService } from './event-details/voters.service';
+import { AuthService } from '../user/auth.service';
 
 @Component({
     selector: 'sessions-list',
@@ -7,11 +9,11 @@ import { ISession } from './events.model';
 })
 
 export class SessionsListComponent implements  OnChanges{
-    @Input() sessions:ISession[]
+    @Input() sessions: ISession[]
     @Input() filterBy:string
     @Input() sortBy:string
     visibleSessions:ISession[] =[]
-    constructor() { }
+    constructor( private auth:AuthService, private voterService:VoterService ) { }
     ngOnChanges(){
         if(this.sessions) {
             this.filterSessions(this.filterBy);
@@ -19,15 +21,29 @@ export class SessionsListComponent implements  OnChanges{
           }
         }
       
-        filterSessions(filter) {
-          if(filter === 'all') {
-            this.visibleSessions = this.sessions.slice(0);
-          } else {
-            this.visibleSessions = this.sessions.filter(session => {
-              return session.level.toLocaleLowerCase() === filter;
-            })
-          }
+    filterSessions(filter) {
+        if(filter === 'all') {
+        this.visibleSessions = this.sessions.slice(0);
+        } else {
+        this.visibleSessions = this.sessions.filter(session => {
+            return session.level.toLocaleLowerCase() === filter;
+        })
         }
+    }
+
+    toggleVote(session:ISession){
+        if(this.userHasVoted(session)) {
+            this.voterService.deleteVoters(session, this.auth.currentUser.userName);
+          } else {
+            this.voterService.addVoters(session, this.auth.currentUser.userName);
+          }
+        if (this.sortBy==='votes') {
+            this.visibleSessions.sort(sortByVotesDsc);
+        }
+    }
+    userHasVoted(session:ISession) {
+        this.voterService.userHasVoted(session,this.auth.currentUser.userName)
+    }
 }
 
 function sortByNameAsc(s1:ISession, s2:ISession) {

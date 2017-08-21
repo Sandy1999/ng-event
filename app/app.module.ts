@@ -16,13 +16,14 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
 import { SessionsListComponent } from './events/sessions-list.component';
 import { CollapsibleWellComponent } from './events/collapsible-well.component';
 import { SimpleModalComponent } from './common/simple-modal.component';
-
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
 import { DurationPipe } from './events/duration.pipe';
 import { EventRouteActivaor } from './events/event-route-activator.service';
 import { EventsListResolver } from './events/event-list-resolver.service';
 import { appRoute } from './routes';
 import { AuthService } from './user/auth.service';
+import { VoterService } from './events/event-details/voters.service';
 
 import { TOASTR_TOKEN } from './common/toastr.service';
 import { JQ_TOKEN } from './common/jQuery.service';
@@ -54,7 +55,8 @@ declare let jQuery:Object;
         CollapsibleWellComponent,
         DurationPipe,
         SimpleModalComponent,
-        ModelTriggerDirective
+        ModelTriggerDirective,
+        UpvoteComponent
     ],
     providers: [
         EventService,
@@ -72,7 +74,8 @@ declare let jQuery:Object;
             useValue:checkDirtyState
         },
         EventsListResolver,
-        AuthService
+        AuthService,
+        VoterService
     ],
     bootstrap: [EventsAppComponent],
 })
