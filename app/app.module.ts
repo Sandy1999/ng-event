@@ -28,6 +28,7 @@ import { VoterService } from './events/event-details/voters.service';
 import { TOASTR_TOKEN } from './common/toastr.service';
 import { JQ_TOKEN } from './common/jQuery.service';
 import { ModelTriggerDirective } from './common/modal-trigger.directive';
+import { LocationValidator } from './events/location-validatior.directive';
 
 declare let toastr:any;
 declare let jQuery:Object;
@@ -56,7 +57,8 @@ declare let jQuery:Object;
         DurationPipe,
         SimpleModalComponent,
         ModelTriggerDirective,
-        UpvoteComponent
+        UpvoteComponent,
+        LocationValidator
     ],
     providers: [
         EventService,
