@@ -1,11 +1,11 @@
-**About This Project**
+About This Project
+==================================================
 This project is for managing events online , its been devloped on Angular 2 framework
 This project includes all the basic concepts of angular that can be utilized for devloping of any web app 
 this is an perfect example of how ts functions
 
-======================================================
-
-**Key Features**
+Key Features
+==================================================
 1. This program is an example of how to manage events
 2. User can create his own event 
 3. User can add sessions in the event created 
