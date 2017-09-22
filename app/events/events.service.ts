@@ -1,11 +1,14 @@
 import { Injectable , EventEmitter} from '@angular/core';
 import { Subject, Observable } from 'rxjs/RX';
 import { IEvent , ISession } from './events.model';
+import { Http } from '@angular/http';
 
 
 @Injectable()
 export class EventService {
-
+    
+    constructor(private http:Http ) { }
+    
     getEvents():Observable<any>{
       let subject = new Subject<any>()
       setTimeout(() => {subject.next(EVENTS); subject.complete();}, 1000)
@@ -45,7 +48,6 @@ export class EventService {
        setTimeout(()=>{emitter.emit(results);},100);
        return emitter;
     }
-    constructor() { }
 }
 
  const EVENTS:IEvent[] = [

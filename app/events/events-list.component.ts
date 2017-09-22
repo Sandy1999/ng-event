@@ -20,7 +20,7 @@ import { IEvent } from './events.model';
 })
 
 export class EventslistComponent implements OnInit {
-    events:any
+    events:IEvent[]
     constructor(private eventService: EventService, private route:ActivatedRoute) { }
 
     ngOnInit() {
